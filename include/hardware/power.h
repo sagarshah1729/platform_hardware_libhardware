@@ -63,7 +63,14 @@ typedef enum {
     POWER_HINT_VIDEO_DECODE = 0x00000004,
     POWER_HINT_LOW_POWER = 0x00000005,
     POWER_HINT_SUSTAINED_PERFORMANCE = 0x00000006,
-    POWER_HINT_VR_MODE = 0x00000007
+    POWER_HINT_VR_MODE = 0x00000007,
+
+    POWER_HINT_CPU_BOOST    = 0x00000010,
+    POWER_HINT_LAUNCH_BOOST = 0x00000011,
+    POWER_HINT_AUDIO        = 0x00000020,
+    POWER_HINT_SET_PROFILE  = 0x00000030
+
+>>>>>>> 4e757c2... power: Add new power hints
 } power_hint_t;
 
 typedef enum {
@@ -246,6 +253,12 @@ typedef struct power_module {
      *     provide minimum guarantee for performance for the amount of time the
      *     device can sustain it. The data parameter is non-zero when the mode
      *     is activated and zero when deactivated.
+     *
+     * POWER_HINT_CPU_BOOST
+     *
+     *     An operation is happening where it would be ideal for the CPU to
+     *     be boosted for a specific duration. The data parameter is an
+     *     integer value of the boost duration in microseconds.
      *
      * A particular platform may choose to ignore any hint.
      *
