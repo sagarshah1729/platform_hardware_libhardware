@@ -258,11 +258,28 @@ enum {
 
     HWC_NUM_PHYSICAL_DISPLAY_TYPES = 2,
     HWC_NUM_DISPLAY_TYPES          = 3,
+
+#ifdef QTI_BSP
+    HWC_DISPLAY_TERTIARY    = 2,
+    HWC_DISPLAY_VIRTUAL     = 3,
+
+    HWC_NUM_PHYSICAL_DISPLAY_TYPES = 3,
+    HWC_NUM_DISPLAY_TYPES          = 4,
+#else
+    HWC_DISPLAY_VIRTUAL     = 2,
+
+    HWC_NUM_PHYSICAL_DISPLAY_TYPES = 2,
+    HWC_NUM_DISPLAY_TYPES          = 3,
+#endif
+>>>>>>> deee000... libhardware: Only support tertiary display in QTI_BSP is defined
 };
 
 enum {
     HWC_DISPLAY_PRIMARY_BIT     = 1 << HWC_DISPLAY_PRIMARY,
     HWC_DISPLAY_EXTERNAL_BIT    = 1 << HWC_DISPLAY_EXTERNAL,
+#ifdef QTI_BSP
+    HWC_DISPLAY_TERTIARY_BIT    = 1 << HWC_DISPLAY_TERTIARY,
+#endif
     HWC_DISPLAY_VIRTUAL_BIT     = 1 << HWC_DISPLAY_VIRTUAL,
 };
 
